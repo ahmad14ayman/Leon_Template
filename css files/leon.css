@@ -108,29 +108,64 @@ body {
     position: relative;
 }
 
-.header .links .icon:hover span:nth-child(2) {
-    width: 100%;
-}
 
-.header .links .icon {
+.burger-icon {
+    height: 20px;
     width: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    position: relative;
+    cursor: pointer;
+    direction: rtl;
 }
 
-
-.header .links .icon span {
+.burger-icon span {
+    background-color: black;
     height: 2px;
     width: 100%;
-    background-color: #333;
-    margin-bottom: 5px;
+    position: absolute;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.burger-icon span:first-child {
+    top: 0;
+}
+
+.burger-icon span:nth-child(2) {
+    top: 8.5px;
+}
+
+.burger-icon span:last-child {
+    top: 17px;
+}
+
+.burger-icon-x span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-icon-x span:is(:first-child, :last-child) {
+    top: 8.5px;
+}
+
+.burger-icon-x span:first-child {
+    background-color: #0fc8b6;
+    transform: rotate(45deg);
+}
+
+.burger-icon-x span:last-child {
+    background-color: #0fc8b6;
+    transform: rotate(-45deg);
 }
 
 .header .links .icon span:nth-child(2) {
     width: 50%;
-    transition: var(--transition-duration);
+    
 }
+
+.header .links .icon:hover span:nth-child(2) {
+    width: 100%;
+}
+
+
 
 .header .links ul {
     list-style: none;
@@ -142,10 +177,11 @@ body {
     right: 0;
     top: calc(100% + 20px);
     display: none;
+    transition: all 0.5s;
     z-index: 1;
 }
 
-.header .links ul ::before {
+.header .links ul::before {
     content: "";
     border-width: 10px;
     border-style: solid;
@@ -155,8 +191,8 @@ body {
     right: 5px;
 }
 
-.header .links:hover ul {
-    display: block;
+.opacity-1{
+    display: block !important;
 }
 
 .header .links ul li a {
@@ -206,7 +242,7 @@ body {
 .landing .text-intro p {
     font-size: 19px;
     line-height: 1.8;
-    color:#a26d6d ;
+    color: #a26d6d;
 }
 
 /* End Landing  */
